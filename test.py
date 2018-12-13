@@ -1,17 +1,5 @@
-import RPi.GPIO as GPIO
-from time import sleep
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(03, GPIO.OUT)
-pwm=GPIO.PWM(03, 50)
-pwm.start(0)
-def SetAngle(angle):
-	duty = angle / 18 + 2
-	GPIO.output(03, True)
-	pwm.ChangeDutyCycle(duty)
-	sleep(1)
-	GPIO.output(03, False)
-	pwm.ChangeDutyCycle(0)
-  return
-SetAngle(90) 
-pwm.stop()
-GPIO.cleanup()
+import time
+servos = {8,10,16,18}
+
+for i in servos:
+	print(i)
